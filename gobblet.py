@@ -92,7 +92,7 @@ def formater_jeu(plateau, joueur):
     return nbr+j0+j1+grille
 
 
-def formatter_les_parties(parties):
+def formater_les_parties(parties):
     rep = ''
     num = 0
     for dic in parties:
