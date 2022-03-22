@@ -63,7 +63,8 @@ def jouer_coup(id_partie, origine, destination, idul, secret):
     if rep.status_code == 200:
         rep = rep.json()
         print(rep)
-        
+        if rep['gagnant'] is not None:
+            raise StopIteration(rep['gagnant'])
     elif rep.status_code == 401:
         rep = rep.json()
         raise PermissionError(rep)
