@@ -92,15 +92,16 @@ def formater_jeu(plateau, joueur):
     return nbr+j0+j1+grille
 
 
-def formater_les_parties(parties):
-    """Formater une liste de parties
-    L'ordre doit être exactement la même que ce qui est passé en paramètre.
-    Args:
-        parties (list): Liste des parties
-    Returns:
-        str: Représentation des parties
-    """
-    pass
+def formatter_les_parties(parties):
+    rep = ''
+    num = 0
+    for dic in parties:
+        num += 1 
+        rep += f"{num} : {dic['date']}, {(dic['joueurs'])[0]} vs {(dic['joueurs'])[1]}"
+        if dic['gagnant'] != None:
+            rep += f", gagnant:{dic['gagnant']}"
+        rep += '\n'
+    return rep
 
 
 def récupérer_le_coup():
