@@ -72,20 +72,24 @@ def formater_plateau(plateau):
         listeligne = []
         for u in plateau[-1]:
             listeligne.append(formater_un_gobblet(u))
-        rep += (f"{lig}{'|'.join(listeligne)}"+'\n'+f"  {0}   {1}   {2}   {3}")
+        rep += (f"{lig}{'|'.join(listeligne)}"+'\n'+f"  {0}   {1}   {2}   {3} ")
     return rep
     
 
 
-def formater_jeu(plateau, joueurs):
-    """Formater un jeu
-    Args:
-        plateau (list): plateau de jeu 4 x 4
-        joueurs (list): list de dictionnaire contenant le nom du joueurs et ses piles de Gobblet
-    Returns:
-        str: Représentation du jeu
-    """
-    pass
+def formater_jeu(plateau, joueur):
+    longueur = []
+    for j in joueur:
+        lm = len(j['nom'])
+        longueur.append(lm)
+    lmax = max(longueur)+3
+    esp = max(longueur)
+    
+    nbr = ' '*(lmax)+f"0   1   2 "+'\n'
+    j0 = ' '*(esp-longueur[0])+f"{formater_un_joueur(joueur[0])}"+'\n'
+    j1 = ' '*(esp-longueur[1])+f"{formater_un_joueur(joueur[1])}"+'\n'+'\n'
+    grille = f"{formater_plateau(plateau)}"
+    return nbr+j0+j1+grille
 
 
 def formater_les_parties(parties):
