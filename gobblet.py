@@ -1,15 +1,5 @@
-"""Module Gobblet
-Attributes:
-    GOBBLET_REPRÉSENTATION (dict): Constante représentant les gobblet des joueurs.
-Functions:
-    * interpréteur_de_commande - Génère un interpréteur de commande.
-    * formater_un_gobblet - Formater la représentation graphique d'un Gobblet.
-    * formater_un_joueur - Formater la représentation graphique d'un joueur et de ses piles.
-    * formater_plateau - Formater la représentation graphique d'un plateau.
-    * formater_jeu - Formater la représentation graphique d'un jeu.
-    * formater_les_parties - Formater la liste des dernières parties.
-    * récupérer_le_coup - Demander le prochain coup à jouer au joueur.
-"""
+
+
 from argparse import ArgumentParser
 
 # Voici la représentation des Gobblets, n'hésitez pas à l'utiliser.
@@ -21,18 +11,11 @@ GOBBLET_REPRÉSENTATION = {
 
 
 def interpréteur_de_commande():
-    """Interpreteur de commande
-    Returns:
-        Namespace: Un objet Namespace tel que retourné par parser.parse_args().
-                   Cette objet aura l'attribut IDUL représentant l'idul du joueur
-                   et l'attribut lister qui est un booléen True/False.
-    """
     parser = ArgumentParser()
-
-    # Complétez le code ici
-    # vous pourriez aussi avoir à ajouter des arguments dans ArgumentParser(...)
+    parser.add_argument('IDUL' == 'cepej')
 
     return parser.parse_args()
+
 
 
 def formater_un_gobblet(gobblet):
@@ -40,21 +23,12 @@ def formater_un_gobblet(gobblet):
         return "   "
     else :
         return f" {((GOBBLET_REPRÉSENTATION[gobblet[0]])[gobblet[1]])} "
-    """Formater un Gobblet
-    Args:
-        gobblet (list): liste vide ou de 2 entier [x, y] représentant le Gobblet
-    Returns:
-        str: Représentation du Gobblet pour le bon joueur
-    """
-
 
 
 def formater_un_joueur(joueur):
     jo = joueur['nom']
     j = joueur['piles']
     return f"{jo}: {formater_un_gobblet(j[0])} {formater_un_gobblet(j[1])} {formater_un_gobblet(j[2])}"
-
-
 
 
 def formater_plateau(plateau):
