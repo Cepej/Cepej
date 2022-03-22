@@ -13,7 +13,7 @@ GOBBLET_REPRÉSENTATION = {
 def interpréteur_de_commande():
     parser = ArgumentParser()
     parser.add_argument('IDUL', help ='Idul du joueur')
-    parser.add_argument('-l',dest = 'lister',action = 'store_true')
+    parser.add_argument('-l',dest = 'lister', help = 'lister les parties existantes')
     return parser.parse_args()
 
 
@@ -69,7 +69,8 @@ def formater_jeu(plateau, joueur):
 def formater_les_parties(parties):
     rep = ''
     num = 0
-    for dic in parties:
+    party = parties['parties']
+    for dic in party:
         num += 1 
         rep += f"{num} : {dic['date']}, {(dic['joueurs'])[0]} vs {(dic['joueurs'])[1]}"
         if dic['gagnant'] != None:
@@ -79,6 +80,6 @@ def formater_les_parties(parties):
 
 
 def récupérer_le_coup():
-    origine =(input('Donnez le numéro de la pile (p) ou la position sur le plateau (x,y):'))
-    destination = input ('Où voulez-vous placer votre gobelet (x,y):')
+    origine = int(input('Donnez le numéro de la pile (p) ou la position sur le plateau (x,y):'))
+    destination = input('Où voulez-vous placer votre gobelet (x,y):')
     return origine, destination

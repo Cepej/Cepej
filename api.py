@@ -8,7 +8,7 @@ def lister_parties(idul, secret):
 
     if rep.status_code == 200:
         rep = rep.json()
-        print(rep)
+        return rep
         
     elif rep.status_code == 401:
         rep = rep.json()
@@ -26,7 +26,7 @@ def débuter_partie(idul, secret):
 
     if rep.status_code == 200:
         rep = rep.json()
-        print(rep)
+        return (rep['id'], rep['plateau'], rep['joueurs'])
         
     elif rep.status_code == 401:
         rep = rep.json()
@@ -43,7 +43,7 @@ def récupérer_partie(id_partie,idul, secret):
 
     if rep.status_code == 200:
         rep = rep.json()
-        print(rep)
+        return rep
         
     elif rep.status_code == 401:
         rep = rep.json()
@@ -60,9 +60,9 @@ def jouer_coup(id_partie, origine, destination, idul, secret):
     rep = requests.put(URL+'jouer',auth=(idul, secret),json={"id": id_partie,"destination": destination,"origine": origine})
     if rep.status_code == 200:
         rep = rep.json()
-        print(rep)
         if rep['gagnant'] is not None:
             raise StopIteration(rep['gagnant'])
+        return rep
     elif rep.status_code == 401:
         rep = rep.json()
         raise PermissionError(rep)
