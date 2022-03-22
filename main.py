@@ -12,7 +12,6 @@ from gobblet import (
 
 # Mettre ici votre secret récupérer depuis le site de PAX
 SECRET = "b87adea9-1fb1-47ec-9834-38b2f30d3d4e"
-IDUL = "cepej"
 
 if __name__ == "__main__":
     args = interpréteur_de_commande()
