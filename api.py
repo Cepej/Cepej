@@ -1,5 +1,3 @@
-
-
 import requests
 
 URL = "https://pax.ulaval.ca/gobblet/api/"

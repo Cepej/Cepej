@@ -12,8 +12,8 @@ GOBBLET_REPRÉSENTATION = {
 
 def interpréteur_de_commande():
     parser = ArgumentParser()
-    parser.add_argument('IDUL' == 'cepej')
-
+    parser.add_argument('IDUL', help ='Idul du joueur')
+    parser.add_argument('-l',dest = 'lister',action = 'store_true')
     return parser.parse_args()
 
 
