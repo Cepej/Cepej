@@ -14,19 +14,21 @@ URL = "https://pax.ulaval.ca/gobblet/api/"
 
 
 def lister_parties(idul, secret):
-    """Lister les parties
-    Args:
-        idul (str): idul du joueur
-        secret (str): secret récupérer depuis le site de PAX
-    Raises:
-        PermissionError: Erreur levée lorsque le serveur retourne un code 401.
-        RuntimeError: Erreur levée lorsque le serveur retourne un code 406.
-        ConnectionError: Erreur levée lorsque le serveur retourne un code autre que 200, 401 ou 406
-    Returns:
-        list: Liste des parties reçues du serveur,
-             après avoir décodé le json de sa réponse.
-    """
-    pass
+    rep = requests.get(URL+'parties', auth=(idul, secret))
+
+    if rep.status_code == 200:
+        rep = rep.json()
+        print(rep)
+        
+    elif rep.status_code == 401:
+        rep = rep.json()
+        raise PermissionError(rep)
+    elif rep.status_code == 406:
+        rep = rep.json()
+        raise RuntimeError(rep)
+        
+    else:
+        raise ConnectionError
 
 
 def débuter_partie(idul, secret):
