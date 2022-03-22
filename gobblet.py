@@ -105,19 +105,6 @@ def formatter_les_parties(parties):
 
 
 def récupérer_le_coup():
-    """Récupérer le coup
-    Returns:
-        tuple: Un tuple composé d'un origine et de la destination.
-               L'origine est soit un entier représentant le numéro de la pile du joueur
-               ou une liste de 2 entier [x, y] représentant le Gobblet sur le plateau
-               La destination estune liste de 2 entier [x, y] représentant le Gobblet
-               sur le plateau
-    Examples:
-        Quel Gobblet voulez-vous déplacer:
-        Donnez le numéro de la pile (p) ou la position sur le plateau (x,y): 0
-        Où voulez-vous placer votre Gobblet (x,y): 0,1
-        Quel Gobblet voulez-vous déplacer:
-        Donnez le numéro de la pile (p) ou la position sur le plateau (x,y): 2,3
-        Où voulez-vous placer votre Gobblet (x,y): 0,1
-    """
-    pass
+    origine =(input('Donnez le numéro de la pile (p) ou la position sur le plateau (x,y):'))
+    destination = input ('Où voulez-vous placer votre gobelet (x,y):')
+    return origine, destination
