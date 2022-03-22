@@ -32,38 +32,38 @@ def lister_parties(idul, secret):
 
 
 def débuter_partie(idul, secret):
-    """Débuter une partie
-    Args:
-        idul (str): idul du joueur
-        secret (str): secret récupérer depuis le site de PAX
-    Raises:
-        PermissionError: Erreur levée lorsque le serveur retourne un code 401.
-        RuntimeError: Erreur levée lorsque le serveur retourne un code 406.
-        ConnectionError: Erreur levée lorsque le serveur retourne un code autre que 200, 401 ou 406
-    Returns:
-        tuple: Tuple constitué de l'identifiant de la partie,
-            de l'état du plateau de jeu et de la liste des joueurs,
-            après avoir décodé le JSON de sa réponse.
-    """
-    pass
+    rep = requests.post(URL+'partie', auth=(idul, secret))
 
+    if rep.status_code == 200:
+        rep = rep.json()
+        print(rep)
+        
+    elif rep.status_code == 401:
+        rep = rep.json()
+        raise PermissionError(rep)
+    elif rep.status_code == 406:
+        rep = rep.json()
+        raise RuntimeError(rep)
+        
+    else:
+        raise ConnectionError
 
-def récupérer_partie(id_partie, idul, secret):
-    """Récupérer une partie
-    Args:
-        id_partie (str): identifiant de la partie à récupérer
-        idul (str): idul du joueur
-        secret (str): secret récupérer depuis le site de PAX
-    Raises:
-        PermissionError: Erreur levée lorsque le serveur retourne un code 401.
-        RuntimeError: Erreur levée lorsque le serveur retourne un code 406.
-        ConnectionError: Erreur levée lorsque le serveur retourne un code autre que 200, 401 ou 406
-    Returns:
-        tuple: Tuple constitué de l'identifiant de la partie,
-            de l'état du plateau de jeu et de la liste des joueurs,
-            après avoir décodé le JSON de sa réponse.
-    """
-    pass
+def récupérer_partie(id_partie,idul, secret):
+    rep = requests.get(URL+'partie/'+id_partie, auth=(idul, secret))
+
+    if rep.status_code == 200:
+        rep = rep.json()
+        print(rep)
+        
+    elif rep.status_code == 401:
+        rep = rep.json()
+        raise PermissionError(rep)
+    elif rep.status_code == 406:
+        rep = rep.json()
+        raise RuntimeError(rep)
+        
+    else:
+        raise ConnectionError
 
 
 def jouer_coup(id_partie, origine, destination, idul, secret):
