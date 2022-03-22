@@ -38,7 +38,7 @@ def interpréteur_de_commande():
 def formater_un_gobblet(gobblet):
     if gobblet == []:
         return "   "
-    else : 
+    else :
         return f" {((GOBBLET_REPRÉSENTATION[gobblet[0]])[gobblet[1]])} "
     """Formater un Gobblet
     Args:
@@ -46,15 +46,15 @@ def formater_un_gobblet(gobblet):
     Returns:
         str: Représentation du Gobblet pour le bon joueur
     """
-    
+
 
 
 def formater_un_joueur(joueur):
     jo = joueur['nom']
-    jetons = joueur['piles']
-    return f"{jo}: {formater_un_gobblet(jetons[0])} {formater_un_gobblet(jetons[1])} {formater_un_gobblet(jetons[2])}"
-    
-    
+    j = joueur['piles']
+    return f"{jo}: {formater_un_gobblet(j[0])} {formater_un_gobblet(j[1])} {formater_un_gobblet(j[2])}"
+
+
 
 
 def formater_plateau(plateau):
@@ -66,7 +66,7 @@ def formater_plateau(plateau):
         for u in i:
             listeligne.append(formater_un_gobblet(u))
         rep += (f"{lig}{'|'.join(listeligne)}"+'\n'+' ───┼───┼───┼───'+'\n')
-    
+
     if plateau[-1]:
         lig -= 1
         listeligne = []
@@ -74,7 +74,7 @@ def formater_plateau(plateau):
             listeligne.append(formater_un_gobblet(u))
         rep += (f"{lig}{'|'.join(listeligne)}"+'\n'+f"  {0}   {1}   {2}   {3} ")
     return rep
-    
+
 
 
 def formater_jeu(plateau, joueur):
@@ -84,7 +84,7 @@ def formater_jeu(plateau, joueur):
         longueur.append(lm)
     lmax = max(longueur)+3
     esp = max(longueur)
-    
+
     nbr = ' '*(lmax)+f"0   1   2 "+'\n'
     j0 = ' '*(esp-longueur[0])+f"{formater_un_joueur(joueur[0])}"+'\n'
     j1 = ' '*(esp-longueur[1])+f"{formater_un_joueur(joueur[1])}"+'\n'+'\n'
