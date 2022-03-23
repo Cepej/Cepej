@@ -9,14 +9,14 @@ def lister_parties(idul, secret):
     if rep.status_code == 200:
         rep = rep.json()
         return rep
-        
+
     elif rep.status_code == 401:
         rep = rep.json()
         raise PermissionError(rep)
     elif rep.status_code == 406:
         rep = rep.json()
         raise RuntimeError(rep)
-        
+
     else:
         raise ConnectionError
 
@@ -34,7 +34,7 @@ def débuter_partie(idul, secret):
     elif rep.status_code == 406:
         rep = rep.json()
         raise RuntimeError(rep)
-        
+
     else:
         raise ConnectionError
 
@@ -44,14 +44,14 @@ def récupérer_partie(id_partie,idul, secret):
     if rep.status_code == 200:
         rep = rep.json()
         return rep
-        
+
     elif rep.status_code == 401:
         rep = rep.json()
         raise PermissionError(rep)
     elif rep.status_code == 406:
         rep = rep.json()
         raise RuntimeError(rep)
-        
+
     else:
         raise ConnectionError
 
@@ -63,13 +63,13 @@ def jouer_coup(id_partie, origine, destination, idul, secret):
         if rep['gagnant'] is not None:
             raise StopIteration(rep['gagnant'])
         b =(rep['id'], rep['plateau'], rep['joueurs'])
-        return b 
+        return b
     elif rep.status_code == 401:
         rep = rep.json()
         raise PermissionError(rep)
     elif rep.status_code == 406:
         rep = rep.json()
         raise RuntimeError(rep)
-        
+
     else:
         raise ConnectionError

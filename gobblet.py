@@ -59,7 +59,7 @@ def formater_jeu(plateau, joueur):
     lmax = max(longueur)+3
     esp = max(longueur)
 
-    nbr = ' '*(lmax)+f"0   1   2 "+'\n'
+    nbr = ' '*(lmax)+"0   1   2 "+'\n'
     j0 = ' '*(esp-longueur[0])+f"{formater_un_joueur(joueur[0])}"+'\n'
     j1 = ' '*(esp-longueur[1])+f"{formater_un_joueur(joueur[1])}"+'\n'+'\n'
     grille = f"{formater_plateau(plateau)}"
@@ -71,9 +71,9 @@ def formater_les_parties(parties):
     num = 0
     party = parties['parties']
     for dic in party:
-        num += 1 
+        num += 1
         rep += f"{num} : {dic['date']}, {(dic['joueurs'])[0]} vs {(dic['joueurs'])[1]}"
-        if dic['gagnant'] != None:
+        if dic['gagnant'] is not None:
             rep += f", gagnant:{dic['gagnant']}"
         rep += '\n'
     return rep

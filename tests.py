@@ -166,3 +166,4 @@ if __name__ == "__main__":
     print("Test de formater_un_plateau_plein réussi")
     test_formater_un_jeu()
     print("Test de formater_un_jeu réussi")
+    

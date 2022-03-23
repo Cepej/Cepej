@@ -28,3 +28,4 @@ if __name__ == "__main__":
             # Envoyez le coup au serveur
             id_partie, plateau, joueurs = jouer_coup(
                 id_partie, origine, destination, args.IDUL, SECRET)
+                
