@@ -7,6 +7,7 @@ from gobblet import (
 
 
 def test_formater_un_gobblet_vide():
+    "test le formatage"
     gobblet = []
     attendu = "   "
 
@@ -16,6 +17,7 @@ def test_formater_un_gobblet_vide():
 
 
 def test_formater_un_gobblet_non_vide():
+    "test les gobbelets vides"
     gobblet = [1, 2]
     attendu = " ◯ "
 
@@ -25,6 +27,7 @@ def test_formater_un_gobblet_non_vide():
 
 
 def test_formater_un_jouer_sans_piles():
+    "test sans piles"
     joueur = {
         "nom": "Alfred",
         "piles": [
