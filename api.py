@@ -26,8 +26,8 @@ def débuter_partie(idul, secret):
 
     if rep.status_code == 200:
         rep = rep.json()
-        return (rep['id'], rep['plateau'], rep['joueurs'])
-        
+        a = (rep['id'], rep['plateau'], rep['joueurs'])
+        return a
     elif rep.status_code == 401:
         rep = rep.json()
         raise PermissionError(rep)
