@@ -80,6 +80,11 @@ def formater_les_parties(parties):
 
 
 def récupérer_le_coup():
-    origine = int(input('Donnez le numéro de la pile (p) ou la position sur le plateau (x,y):'))
-    destination = input('Où voulez-vous placer votre gobelet (x,y):')
+    orig =input('Donnez le numéro de la pile (p) ou la position sur le plateau (x,y):')
+    if len(orig) <= 2 :
+        origine = int(orig)
+    else:
+        origine = [int(orig[0]),int(orig[-1])]
+    dest = input ('Où voulez-vous placer votre gobelet (x,y):')
+    destination = [int(dest[0]),int(dest[-1])]
     return origine, destination
