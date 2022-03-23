@@ -1,9 +1,10 @@
-import requests
+import requests ; "importe un module"
 
 URL = "https://pax.ulaval.ca/gobblet/api/"
 
 
 def lister_parties(idul, secret):
+    "liste les parties"
     rep = requests.get(URL+'parties', auth=(idul, secret))
 
     if rep.status_code == 200:
@@ -22,6 +23,7 @@ def lister_parties(idul, secret):
 
 
 def débuter_partie(idul, secret):
+    "débute la partie"
     rep = requests.post(URL+'partie', auth=(idul, secret))
 
     if rep.status_code == 200:
@@ -39,6 +41,7 @@ def débuter_partie(idul, secret):
         raise ConnectionError
 
 def récupérer_partie(id_partie,idul, secret):
+    "récupère les partie"
     rep = requests.get(URL+'partie/'+id_partie, auth=(idul, secret))
 
     if rep.status_code == 200:
@@ -57,6 +60,7 @@ def récupérer_partie(id_partie,idul, secret):
 
 
 def jouer_coup(id_partie, origine, destination, idul, secret):
+    "joue le coup"
     rep = requests.put(URL+'jouer',auth=(idul, secret),json={"id": id_partie,"destination": destination,"origine": origine})
     if rep.status_code == 200:
         rep = rep.json()

@@ -3,7 +3,7 @@ from gobblet import (
     formater_plateau,
     formater_un_joueur,
     formater_un_gobblet,
-)
+) ;"importe les fonctions"
 
 
 def test_formater_un_gobblet_vide():
@@ -45,6 +45,7 @@ def test_formater_un_jouer_sans_piles():
 
 
 def test_formater_un_jouer_avec_piles():
+    "test formater avec pile"
     joueur = {
         "nom": "Alfred",
         "piles": [
@@ -62,6 +63,7 @@ def test_formater_un_jouer_avec_piles():
 
 
 def test_formater_un_plateau_vide():
+    "test plateau vide "
     plateau = [
         [[], [], [], []],
         [[], [], [], []],
@@ -86,6 +88,7 @@ def test_formater_un_plateau_vide():
 
 
 def test_formater_un_plateau_plein():
+    "test plateau plein "
     plateau = [
         [[1, 0], [1, 1], [2, 0], [2, 1]],
         [[2, 2], [2, 3], [1, 2], [1, 3]],
@@ -110,6 +113,7 @@ def test_formater_un_plateau_plein():
 
 
 def test_formater_un_jeu():
+    "test formater le jeu "
     plateau = [
         [[], [], [], []],
         [[], [], [], []],

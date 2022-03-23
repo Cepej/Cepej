@@ -1,6 +1,6 @@
 
 
-from argparse import ArgumentParser
+from argparse import ArgumentParser ; "importe un module"
 
 # Voici la représentation des Gobblets, n'hésitez pas à l'utiliser.
 # 1 pour le joueur 1, 2 pour le joueur 2.
@@ -11,6 +11,7 @@ GOBBLET_REPRÉSENTATION = {
 
 
 def interpréteur_de_commande():
+    "interprète la commande "
     parser = ArgumentParser()
     parser.add_argument('IDUL', help ='Idul du joueur')
     parser.add_argument('-l',dest = 'lister', help = 'lister les parties existantes')
@@ -19,6 +20,7 @@ def interpréteur_de_commande():
 
 
 def formater_un_gobblet(gobblet):
+    "formate un gobblet"
     if gobblet == []:
         return "   "
     else :
@@ -26,12 +28,14 @@ def formater_un_gobblet(gobblet):
 
 
 def formater_un_joueur(joueur):
+    "formate un joeur"
     jo = joueur['nom']
     j = joueur['piles']
     return f"{jo}: {formater_un_gobblet(j[0])} {formater_un_gobblet(j[1])} {formater_un_gobblet(j[2])}"
 
 
 def formater_plateau(plateau):
+    "formate le plateau"
     lig = 4
     rep = ''
     for i in plateau[:-1] :
@@ -52,6 +56,7 @@ def formater_plateau(plateau):
 
 
 def formater_jeu(plateau, joueur):
+    "formate le jeu"
     longueur = []
     for j in joueur:
         lm = len(j['nom'])
@@ -67,6 +72,7 @@ def formater_jeu(plateau, joueur):
 
 
 def formater_les_parties(parties):
+    "formate les parties"
     rep = ''
     num = 0
     party = parties['parties']
@@ -80,6 +86,7 @@ def formater_les_parties(parties):
 
 
 def récupérer_le_coup():
+    "récupère le coup"
     orig =input('Donnez le numéro de la pile (p) ou la position sur le plateau (x,y):')
     if len(orig) <= 2 :
         origine = int(orig)
