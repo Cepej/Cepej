@@ -1,4 +1,5 @@
-import requests ; "importe un module"
+import requests
+"importe les modules"
 
 URL = "https://pax.ulaval.ca/gobblet/api/"
 
@@ -11,10 +12,10 @@ def lister_parties(idul, secret):
         rep = rep.json()
         return rep
 
-    elif rep.status_code == 401:
+    if rep.status_code == 401:
         rep = rep.json()
         raise PermissionError(rep)
-    elif rep.status_code == 406:
+    if rep.status_code == 406:
         rep = rep.json()
         raise RuntimeError(rep)
 
@@ -30,10 +31,10 @@ def débuter_partie(idul, secret):
         rep = rep.json()
         a = (rep['id'], rep['plateau'], rep['joueurs'])
         return a
-    elif rep.status_code == 401:
+    if rep.status_code == 401:
         rep = rep.json()
         raise PermissionError(rep)
-    elif rep.status_code == 406:
+    if rep.status_code == 406:
         rep = rep.json()
         raise RuntimeError(rep)
 
@@ -48,10 +49,10 @@ def récupérer_partie(id_partie,idul, secret):
         rep = rep.json()
         return rep
 
-    elif rep.status_code == 401:
+    if rep.status_code == 401:
         rep = rep.json()
         raise PermissionError(rep)
-    elif rep.status_code == 406:
+    if rep.status_code == 406:
         rep = rep.json()
         raise RuntimeError(rep)
 
@@ -61,17 +62,18 @@ def récupérer_partie(id_partie,idul, secret):
 
 def jouer_coup(id_partie, origine, destination, idul, secret):
     "joue le coup"
-    rep = requests.put(URL+'jouer',auth=(idul, secret),json={"id": id_partie,"destination": destination,"origine": origine})
+    rep = requests.put(URL+'jouer',auth=(idul, secret)
+    ,json={"id": id_partie,"destination": destination,"origine": origine})
     if rep.status_code == 200:
         rep = rep.json()
         if rep['gagnant'] is not None:
             raise StopIteration(rep['gagnant'])
         b =(rep['id'], rep['plateau'], rep['joueurs'])
         return b
-    elif rep.status_code == 401:
+    if rep.status_code == 401:
         rep = rep.json()
         raise PermissionError(rep)
-    elif rep.status_code == 406:
+    if rep.status_code == 406:
         rep = rep.json()
         raise RuntimeError(rep)
 

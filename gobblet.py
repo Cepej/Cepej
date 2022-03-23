@@ -1,6 +1,6 @@
 
-
-from argparse import ArgumentParser ; "importe un module"
+from argparse import ArgumentParser 
+"importe un module"
 
 # Voici la représentation des Gobblets, n'hésitez pas à l'utiliser.
 # 1 pour le joueur 1, 2 pour le joueur 2.
