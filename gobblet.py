@@ -1,4 +1,4 @@
-#importe un module
+"importe le module ArgumentParser"
 from argparse import ArgumentParser
 
 
@@ -23,7 +23,7 @@ def formater_un_gobblet(gobblet):
     "formate un gobblet"
     if gobblet == []:
         return "   "
-    
+
     return f" {((GOBBLET_REPRÉSENTATION[gobblet[0]])[gobblet[1]])} "
 
 

@@ -1,4 +1,4 @@
-#importe les fonctions
+"importe les fonctions pour test"
 from gobblet import (
     formater_jeu,
     formater_plateau,

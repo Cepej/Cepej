@@ -1,5 +1,5 @@
 import requests
-"importe les modules"
+
 
 URL = "https://pax.ulaval.ca/gobblet/api/"
 
@@ -74,5 +74,5 @@ def jouer_coup(id_partie, origine, destination, idul, secret):
         rep = rep.json()
         raise RuntimeError(rep)
 
-    
+
     raise ConnectionError
