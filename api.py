@@ -19,8 +19,7 @@ def lister_parties(idul, secret):
         rep = rep.json()
         raise RuntimeError(rep)
 
-    else:
-        raise ConnectionError
+    raise ConnectionError
 
 
 def débuter_partie(idul, secret):
@@ -38,8 +37,7 @@ def débuter_partie(idul, secret):
         rep = rep.json()
         raise RuntimeError(rep)
 
-    else:
-        raise ConnectionError
+    raise ConnectionError
 
 def récupérer_partie(id_partie,idul, secret):
     "récupère les partie"
@@ -56,8 +54,7 @@ def récupérer_partie(id_partie,idul, secret):
         rep = rep.json()
         raise RuntimeError(rep)
 
-    else:
-        raise ConnectionError
+    raise ConnectionError
 
 
 def jouer_coup(id_partie, origine, destination, idul, secret):
@@ -77,5 +74,5 @@ def jouer_coup(id_partie, origine, destination, idul, secret):
         rep = rep.json()
         raise RuntimeError(rep)
 
-    else:
-        raise ConnectionError
+    
+    raise ConnectionError

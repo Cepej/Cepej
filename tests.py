@@ -1,10 +1,11 @@
+#importe les fonctions
 from gobblet import (
     formater_jeu,
     formater_plateau,
     formater_un_joueur,
     formater_un_gobblet,
-) 
-"importe les foncion"
+)
+
 
 
 def test_formater_un_gobblet_vide():

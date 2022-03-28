@@ -1,6 +1,6 @@
+#importe un module
+from argparse import ArgumentParser
 
-from argparse import ArgumentParser 
-"importe un module"
 
 # Voici la représentation des Gobblets, n'hésitez pas à l'utiliser.
 # 1 pour le joueur 1, 2 pour le joueur 2.
@@ -23,8 +23,8 @@ def formater_un_gobblet(gobblet):
     "formate un gobblet"
     if gobblet == []:
         return "   "
-    else :
-        return f" {((GOBBLET_REPRÉSENTATION[gobblet[0]])[gobblet[1]])} "
+    
+    return f" {((GOBBLET_REPRÉSENTATION[gobblet[0]])[gobblet[1]])} "
 
 
 def formater_un_joueur(joueur):
